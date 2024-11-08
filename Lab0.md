@@ -15,7 +15,7 @@ Tham khảo thêm tại đường dẫn bên dưới:
 
 
 #### Code demo
-````Demo
+```Demo
 @startuml
 
 actor Customer
@@ -48,3 +48,4 @@ UC_Checkout --> Paypal
 @enduml
 
 ** Lưu ý: Phải dùng công cụ hỗ trợ thích hợp để chạy được code(PlantTextUML,...) **
+```
