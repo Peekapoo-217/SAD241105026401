@@ -51,3 +51,27 @@ Hệ thống Payroll được đề xuất sử dụng kiến trúc MVC:
    Đảm bảo dữ liệu được lưu trữ an toàn và duy trì tính toàn vẹn trong cơ sở dữ liệu.  
 
 
+## 3. Phân tích ca sử dụng Select Payment Method:
+
+- **Mô tả ca sử dụng**:
+   1. **Lớp Employee**:
+      - Thuộc tính: name, paymentMethod
+      - Phương thức: selectPaymentMethod()
+     
+   2. **Lớp PaymentMethod**:
+      - Thuộc tính: type (pick up, mail, direct deposit), address, bankAccount
+      - Phương thức: getType(), getAddress(), getBankAccount()
+     
+   3. **Lớp PaymentSystem**:
+      - Thuộc tính: employeeInfo
+      - Phương thức: requestPaymentMethod(), updateEmployeeInfo()
+
+
+### Quan hệ:
+   - Employee có một PaymentMethod
+   - PaymentSystem tương tác với Employee để yêu cầu và cập nhật thông tin phương thức thanh toán
+
+---
+# Sequence Diagram biểu diễn UseCase Select Payment
+
+![markdown](https://www.planttext.com/api/plantuml/png/d9HBRi8m48RtFiKeAoB11P2eQ2igiG1LgbXNnfw2XL-rdLOvMnSzKgzGvmLr25GY6zkPR_wPtvhav-jxxWDreL2IK1QCWuMoqfI8nCRNWWbBTO0NbCZ2CoqLwh32i3VyoJW5rCDc-H_vQ7HmHbPmkvNeI0oBK0xn5RYeeuHqtS3aBbQQWZ_7HpdPBAluINmA3jyBz6VW2QaIcY9Js64A-aWsCPZqT6t29NfjXrnuAsdP4qppydDZR6-CnxHVLIz3zWhBQRX04oe3D0UOpI2pWXqAcn68px3_QseeFVvLKrJ836gnfgtEoF7ELv4GUdVFkKFlH-sQrobzrzQP3y6nbu9LaVOmZbVk_QTnFB_9mHXerq3V2XSkpj8hHsky2DarJmzK7vRwpOoksZXIsxXPKuMnE6Ecq65Tg2swMnrSb4FDoT0C9jEsgPMxpoHnTu6RHztuG_W5003__mC0)
