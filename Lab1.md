@@ -51,6 +51,10 @@ Hệ thống Payroll được đề xuất sử dụng kiến trúc MVC:
    Đảm bảo dữ liệu được lưu trữ an toàn và duy trì tính toàn vẹn trong cơ sở dữ liệu.  
 
 
+---
+
+## 3. Phân tích ca sử dụng Select Payment
+
 ## Mô hình (Model):
 
 ### Lớp PaymentMethod
