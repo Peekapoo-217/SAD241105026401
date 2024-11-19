@@ -51,20 +51,38 @@ Hệ thống Payroll được đề xuất sử dụng kiến trúc MVC:
    Đảm bảo dữ liệu được lưu trữ an toàn và duy trì tính toàn vẹn trong cơ sở dữ liệu.  
 
 
-## 3. Phân tích ca sử dụng Select Payment Method:
+## Mô hình (Model):
 
-- **Mô tả ca sử dụng**:
-   1. **Lớp Employee**:
-      - Thuộc tính: name, paymentMethod
-      - Phương thức: selectPaymentMethod()
-     
-   2. **Lớp PaymentMethod**:
-      - Thuộc tính: type (pick up, mail, direct deposit), address, bankAccount
-      - Phương thức: getType(), getAddress(), getBankAccount()
-     
-   3. **Lớp PaymentSystem**:
-      - Thuộc tính: employeeInfo
-      - Phương thức: requestPaymentMethod(), updateEmployeeInfo()
+### Lớp PaymentMethod
+- **Thuộc tính**:
+  - `type`: Loại phương thức thanh toán (ví dụ: "pick up", "mail", "direct deposit").
+  - `address`: Địa chỉ nhận thanh toán (dành cho phương thức thanh toán qua mail hoặc pick-up).
+  - `bankAccount`: Tài khoản ngân hàng (dành cho phương thức "direct deposit").
+
+- **Phương thức**:
+  - `getType()`: Lấy loại phương thức thanh toán.
+  - `getAddress()`: Lấy địa chỉ của người nhận thanh toán.
+  - `getBankAccount()`: Lấy số tài khoản ngân hàng.
+  - `updatePaymentMethod()`: Cập nhật thông tin phương thức thanh toán.
+
+---
+
+## Giao diện (View):
+
+### Lớp PaymentMethodView
+- Hiển thị các tùy chọn phương thức thanh toán cho người dùng.
+- Xử lý đầu vào của người dùng để chọn phương thức thanh toán và cung cấp thêm chi tiết.
+
+---
+
+## Điều khiển (Controller):
+
+### Lớp PaymentMethodController
+- Lấy các phương thức thanh toán có sẵn từ mô hình `PaymentMethod`.
+- Chuyển các tùy chọn phương thức thanh toán đến `PaymentMethodView`.
+- Nhận phương thức thanh toán đã chọn bởi người dùng từ `PaymentMethodView`.
+- Cập nhật mô hình `PaymentMethod` với chi tiết phương thức thanh toán đã chọn.
+
 
 
 ### Quan hệ:
