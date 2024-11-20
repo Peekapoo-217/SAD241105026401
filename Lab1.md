@@ -179,3 +179,16 @@ Phương thức:
  - TimeCardController -- TimeCardView: Controller điều khiển View. Đây là mối quan hệ 1-1.
  - TimeCardView ..> TimeCard: View hiển thị thông tin từ TimeCard. Đây là mối quan hệ phụ thuộc (dependency).
  - Project ..> TimeCardController: Project cung cấp dữ liệu cho Controller. Đây là mối quan hệ phụ thuộc
+
+---
+
+# Hợp nhất kết quả phân tích
+
+## Class diagram
+![markdown](https://www.planttext.com/api/plantuml/png/h5NDRjim3BxxAOISqY4vz1eCHOCqm0QqnO1ilTCMasZLJq39QODXJxR37cclC2cH3CjsamseBuP5Kln-AFdFhz-trW6vMicYac0jMwgTD0T4zgDW_faomMTCQ1U_D2YSiPKZeJTn2HK8sLahGJy_zbEXgaojtMEjIgHEBEpYl-QS4rgR1HcpAB5oN-2WKBi7T5l3n-huIebNCxOtWiVyUiV1uRdyYIUrDiFLlWRfgr2u0EBZhQd9urbB0sx2gYtG1dC6URMjIoLSKvw2FukeS8QgaJb75xVQOCxPXjtkXNKVJsatP-XYDFBpoRy9-nV-3SW4ly7NLY4k3KaH0Ur1YW1fqKfPldhWTlo6WAKn4a5dX3w5ddqY_sj80dFQhjUhurUdNTy-Cj_zB4PXcE-FrVCTE2Z1udplfnXAFydkqE_axMmBqdUpEoCBenqPAP6QTaCduOBLbu_6-ypA05f2Nu9xFADk2dNCccl-xJs7O4UcylVAAfXjhJ1w04fogyViIU1BmuaBkvDmI9OlYGoDysOn9JUxZT7cnb-iVZgfuc6VQRUggq2n4xHRyt8iUl0nsE1RjKaNx-9Qa3esQrzUpOzXT3rYq-aD6tqOvNVPG8f_D_uEZ4d8kHIFvwte7ubZD0EG-HN22L5nYvg7dznV0000__y30000)
+
+### Tích hợp
+  - Các controller như PaymentController và TimeCardController sẽ kết nối các thực thể như Employee, PaymentMethod, và TimeCard.
+  - Lớp Project được dùng chung để cung cấp dữ liệu liên quan (charge numbers).
+  - Employee tương tác trực tiếp với cả PaymentMethod và TimeCard, thực hiện cả hai use case từ giao diện người dùng.
+
