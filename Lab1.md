@@ -97,3 +97,49 @@ Hệ thống Payroll được đề xuất sử dụng kiến trúc MVC:
 # Sequence Diagram biểu diễn UseCase Select Payment
 
 ![markdown](https://www.planttext.com/api/plantuml/png/d9HBRi8m48RtFiKeAoB11P2eQ2igiG1LgbXNnfw2XL-rdLOvMnSzKgzGvmLr25GY6zkPR_wPtvhav-jxxWDreL2IK1QCWuMoqfI8nCRNWWbBTO0NbCZ2CoqLwh32i3VyoJW5rCDc-H_vQ7HmHbPmkvNeI0oBK0xn5RYeeuHqtS3aBbQQWZ_7HpdPBAluINmA3jyBz6VW2QaIcY9Js64A-aWsCPZqT6t29NfjXrnuAsdP4qppydDZR6-CnxHVLIz3zWhBQRX04oe3D0UOpI2pWXqAcn68px3_QseeFVvLKrJ836gnfgtEoF7ELv4GUdVFkKFlH-sQrobzrzQP3y6nbu9LaVOmZbVk_QTnFB_9mHXerq3V2XSkpj8hHsky2DarJmzK7vRwpOoksZXIsxXPKuMnE6Ecq65Tg2swMnrSb4FDoT0C9jEsgPMxpoHnTu6RHztuG_W5003__mC0)
+
+
+## 4. Phân tích ca sử dụng Maintain Timecard
+
+## Mô hình (Model):
+
+### Timecard:
+- **Thuộc tính**:
+ - employeeId
+ - startDate
+ - endDate
+ - status (new, submitted)
+ - hoursWorked
+ - projectCharges (danh sách các charge numbers)
+ - submittedDate
+
+Phương thức:
+
+ - createNewTimeCard()
+ - updateHours()
+ - submitTimeCard()
+ - validateHours()
+ - saveTimeCard()
+
+### Project:
+- **Thuộc tính**:
+ - projectId
+ - chargeNumber
+ - maxHours
+   
+Phương thức:
+
+ - getChargeNumbers()
+ - validateChargeNumber()
+
+## View:
+### Time Card View:
+- **Phương thức**:
+ - retrieveTimeCard()
+ - updateTimeCardHours()
+ - submitTimeCard()
+ - validateTimeCardEntry()
+ - getProjectChargeNumbers()
+
+# Sequence Diagram biểu diễn UseCase Maintain Timecard
+![markdown](https://www.planttext.com/api/plantuml/png/j5RDZjCm4BxdAUR6hiI-G0zeLwKI2B6xqhBBsNMcZS6n8zlfqZC7peWp4eW30Wcnv-s1Gu7tw1Fm2eoJk4beqnyGELXHFDytCvy_J_jhzktOEcPSdig8SQSD3D9CwYbYbD5dmKN6b8Cd8iK-C_6LmEkr6tsjdD5IebcxtVfuRlGpv2wAGYeukjVAq0DK3atuT70ODNURqNNQ7XXqHk04bp2iw1_6Xr5q1nw9nUnb2iumY9bZGsOnMkNnx5M1FU09ykVtg-2J2HEI3OKKRaebCUcMFA2q0rRkIuo0dee3ZZggHMEqAIBNrR0YI2ni9jaqr3BmQ2gYYG_Q15Lxa1cTPixp2fNZcUapnL5Mi6BnJGIPg5kjBLhW5Q28y4_tEOLGwfOZnXLrLrSrkaO-5IxHkUidp8pnD4-7Q6n5WvAKNQskQ68bpoPdb92p30rpGgijLNPfNwedkoZA0bhwsqHVDr6FqLesnWQOV8DWn3WXirrIjzoR2LLiIm5K71KYB7ssdyTipZcbx7HPm-bZN7i4spBm9cPlD_-PqVTB5_KqMTn-oM1Cz_KjoFcx52Rq-eflcnSFT4uqYL_ljYhRRNvCc1GaD9we-3BpBnluskEat0DLRCBtr_CFu1QpDuhMs_UYOyZKLo4aRienU26iimVjhFwsjdFvkOD5w3-9VrLMG1ODWwMmNJlNbZpDZl9j-ZL9_jg-NPrTbBZQKETag8-A-8QfSE08mtrURx2leCRvTFvPWKf-tW3_yMc3oqg2FN-MCZyQhRtmM6lBsR6h8qe5oMx-v2VBGmhAZ7Avqt6irFsVvG-TKlH8c3HCpC9JZIv6DCimtftVZzF2d_KSBGxuc5Rw__8R003__mC0)
