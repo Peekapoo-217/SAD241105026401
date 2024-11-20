@@ -55,39 +55,60 @@ Hệ thống Payroll được đề xuất sử dụng kiến trúc MVC:
 
 ## 3. Phân tích ca sử dụng Select Payment
 
-## Mô hình (Model):
+## Models:
+
+### Lớp Employee
+- **Thuộc tính**:
+  - id
+  - name
+  - paymentMethod
+
+- **Phương thức**:
+  - selectPaymentMethod(): Chọn phương thức thanh toán
+  - updatePaymentInfo(): Cập nhật thông tin thanh toán
+  - getPaymentMethod(): Lấy thông tin phương thức thanh toán
+
 
 ### Lớp PaymentMethod
 - **Thuộc tính**:
-  - `type`: Loại phương thức thanh toán (ví dụ: "pick up", "mail", "direct deposit").
-  - `address`: Địa chỉ nhận thanh toán (dành cho phương thức thanh toán qua mail hoặc pick-up).
-  - `bankAccount`: Tài khoản ngân hàng (dành cho phương thức "direct deposit").
+  - employeeId: ID của nhân viên
+  - type: Loại thanh toán (pickup, mail, direct deposit)
+  - address: Địa chỉ gửi thư (cho mail)
+  - bankAccount: Số tài khoản (cho direct deposit)
+  - bankName: Tên ngân hàng (cho direct deposit)
 
 - **Phương thức**:
-  - `getType()`: Lấy loại phương thức thanh toán.
-  - `getAddress()`: Lấy địa chỉ của người nhận thanh toán.
-  - `getBankAccount()`: Lấy số tài khoản ngân hàng.
-  - `updatePaymentMethod()`: Cập nhật thông tin phương thức thanh toán.
+  - Các phương thức getter để lấy thông tin
+  - updatePaymentMethod(): Cập nhật thông tin thanh toán
+  - validatePaymentInfo(): Kiểm tra tính hợp lệ của thông tin
 
 ---
 
-## Giao diện (View):
+## View:
 
 ### Lớp PaymentMethodView
-- Hiển thị các tùy chọn phương thức thanh toán cho người dùng.
-- Xử lý đầu vào của người dùng để chọn phương thức thanh toán và cung cấp thêm chi tiết.
+  - displayPaymentOptions(): Hiển thị các lựa chọn thanh toán
+  - getPaymentSelection(): Nhận lựa chọn từ người dùng
+  - displayAddressForm(): Hiển thị form nhập địa chỉ
+  - displayBankForm(): Hiển thị form nhập thông tin ngân hàng
+  - showConfirmation(): Hiển thị thông báo thành công
+  - showError(): Hiển thị thông báo lỗi
 
 ---
 
-## Điều khiển (Controller):
+## Controller:
 
 ### Lớp PaymentMethodController
-- Lấy các phương thức thanh toán có sẵn từ mô hình `PaymentMethod`.
-- Chuyển các tùy chọn phương thức thanh toán đến `PaymentMethodView`.
-- Nhận phương thức thanh toán đã chọn bởi người dùng từ `PaymentMethodView`.
-- Cập nhật mô hình `PaymentMethod` với chi tiết phương thức thanh toán đã chọn.
+- **Thuộc tính**:
+  - paymentMethod: Tham chiếu đến model
+  - view: Tham chiếu đến view
 
-
+- **Phương thức**:
+  - handlePaymentSelection(): Xử lý lựa chọn phương thức thanh toán
+  - processAddressInput(): Xử lý nhập địa chỉ
+  - processBankInput(): Xử lý nhập thông tin ngân hàng
+  - validateInput(): Kiểm tra đầu vào
+  - updatePaymentMethod(): Cập nhật thông tin thanh toán
 
 ### Quan hệ:
    - Employee có một PaymentMethod
@@ -99,6 +120,10 @@ Hệ thống Payroll được đề xuất sử dụng kiến trúc MVC:
 ![markdown](https://www.planttext.com/api/plantuml/png/d9HBRi8m48RtFiKeAoB11P2eQ2igiG1LgbXNnfw2XL-rdLOvMnSzKgzGvmLr25GY6zkPR_wPtvhav-jxxWDreL2IK1QCWuMoqfI8nCRNWWbBTO0NbCZ2CoqLwh32i3VyoJW5rCDc-H_vQ7HmHbPmkvNeI0oBK0xn5RYeeuHqtS3aBbQQWZ_7HpdPBAluINmA3jyBz6VW2QaIcY9Js64A-aWsCPZqT6t29NfjXrnuAsdP4qppydDZR6-CnxHVLIz3zWhBQRX04oe3D0UOpI2pWXqAcn68px3_QseeFVvLKrJ836gnfgtEoF7ELv4GUdVFkKFlH-sQrobzrzQP3y6nbu9LaVOmZbVk_QTnFB_9mHXerq3V2XSkpj8hHsky2DarJmzK7vRwpOoksZXIsxXPKuMnE6Ecq65Tg2swMnrSb4FDoT0C9jEsgPMxpoHnTu6RHztuG_W5003__mC0)
 
 
+# Class Diagram biểu diễn UseCase Select Payment
+![markdown](https://www.planttext.com/api/plantuml/png/d5J1RXiX4Btp5IYNkb8TfTSzH76YLF8XILLNlUDbOgC0Wu1rv5RziXxwIVs50il6O9n6ghJIYdblXfd7Wp-_VbyvpwmVb2JkIMZ3B5EqbyovXVTMh0SFonxrIdm7Ua78Etg772H93FgPxHLeVmT-Yvp-89JEGHc9Uu0bx-Wg5D2R6FLx0-MQSMx1kJAqPlffqVSuQ7ySlcUgp0uVtO3_6chEtXVn65oCXPluzQ5wZGs6Cm_L896mHfJ0T6Jic1G5PwaViMJyZA9y4_1yIfCOJxfGBfoHR9_H1-C5wjJc3WNFJMPm1HBwYDUTvWfvmazeLPcUqJZdCUIs-7o3-b5OnQQo9NPhBTgP2aNPvaNdYPF62zdUefHWJmrvG4SBc1BiQcx4Tq6KhjKfd-oMQIwXaQ9qKD6_iTY7nhCeIsq6FpioLykE8etKOtTze6mqoJsUI9-SCERMBdd3Hqd6stmtieZJSbHDL1T6rvP_IzDqb4chfeEf-Qh1oSIj-Gw9zHvfW2yWauFSLXX7Nle_-tX6v_Fqgr-4BfocevVaDRly8r4n7TpuFydfpdMq7vbDXGIVdrysE-ORLCpLi8hTEpeuS8HSWURXyVmB003__mC0)
+
+---
 ## 4. Phân tích ca sử dụng Maintain Timecard
 
 ## Mô hình (Model):
@@ -143,3 +168,14 @@ Phương thức:
 
 # Sequence Diagram biểu diễn UseCase Maintain Timecard
 ![markdown](https://www.planttext.com/api/plantuml/png/j5RDZjCm4BxdAUR6hiI-G0zeLwKI2B6xqhBBsNMcZS6n8zlfqZC7peWp4eW30Wcnv-s1Gu7tw1Fm2eoJk4beqnyGELXHFDytCvy_J_jhzktOEcPSdig8SQSD3D9CwYbYbD5dmKN6b8Cd8iK-C_6LmEkr6tsjdD5IebcxtVfuRlGpv2wAGYeukjVAq0DK3atuT70ODNURqNNQ7XXqHk04bp2iw1_6Xr5q1nw9nUnb2iumY9bZGsOnMkNnx5M1FU09ykVtg-2J2HEI3OKKRaebCUcMFA2q0rRkIuo0dee3ZZggHMEqAIBNrR0YI2ni9jaqr3BmQ2gYYG_Q15Lxa1cTPixp2fNZcUapnL5Mi6BnJGIPg5kjBLhW5Q28y4_tEOLGwfOZnXLrLrSrkaO-5IxHkUidp8pnD4-7Q6n5WvAKNQskQ68bpoPdb92p30rpGgijLNPfNwedkoZA0bhwsqHVDr6FqLesnWQOV8DWn3WXirrIjzoR2LLiIm5K71KYB7ssdyTipZcbx7HPm-bZN7i4spBm9cPlD_-PqVTB5_KqMTn-oM1Cz_KjoFcx52Rq-eflcnSFT4uqYL_ljYhRRNvCc1GaD9we-3BpBnluskEat0DLRCBtr_CFu1QpDuhMs_UYOyZKLo4aRienU26iimVjhFwsjdFvkOD5w3-9VrLMG1ODWwMmNJlNbZpDZl9j-ZL9_jg-NPrTbBZQKETag8-A-8QfSE08mtrURx2leCRvTFvPWKf-tW3_yMc3oqg2FN-MCZyQhRtmM6lBsR6h8qe5oMx-v2VBGmhAZ7Avqt6irFsVvG-TKlH8c3HCpC9JZIv6DCimtftVZzF2d_KSBGxuc5Rw__8R003__mC0)
+
+---
+# Class Diagram biểu diễn UseCase Maintain Timecard
+![markdown](https://www.planttext.com/api/plantuml/png/h5JBZXCn4BpxArgv492oWki8HRiAYpOIh5O4mRapqoHc_HZPdeI0-38EV1A_G8yzpZeFLdj0YZA9gwkwgzIUFxz-N_g0BdHQ2NylJOiEDTGAlRyAmSbb5sXUMxEGtmbU2X4H-2WrpT0ry4C0J4Ytokw8vaq52-QOLNyQPTzWe0hwxrXeciC3hWcTBrbhspd_sRfxOh6tocBeJrjdlr8TPcjqA-BwTzA7ruaqZJhTKiiGw52UFr0xuZ-tjCqZZvzNiB6owS6kRHYywLkEO-EX9PSihLM4fgzAuYM_03Uev8F84H4tT8xsCyTubsob50UFXo7MqV5jfvVaodEDtswAWGUpAneYIeGupr5K-u7Bmh4vQ71krEpZawHjd1SSSJ4L3a_NW8Ko-X1tFlaliMVusWItUqICaxahT-XV0PtudLbMjagHIwuRwLk5ktFRD40d3JBkrtPxxPnrxybxND5OfsUHrf7Kee_0UsaDZ_55Ees1VvUQx2lcE3Tj5teWhGFRU0OVICLwlvQj5_ihEterWia4HYz6-_shW6zuG6ayJCKPvvd2ZxrC1HeDJ_zqIboTr8gBIbv4BYwcfVeGWHTvo18l6bN05sSZ6nw45mA5kEIt3B_D_W800F__0m00)
+
+## Giải thích:
+ - TimeCard -- Project: Một TimeCard có thể chứa nhiều Project (thông qua charge numbers). Đây là mối quan hệ 1-nhiều.
+ - TimeCardController -- TimeCard: Controller quản lý một TimeCard. Đây là mối quan hệ 1-1.
+ - TimeCardController -- TimeCardView: Controller điều khiển View. Đây là mối quan hệ 1-1.
+ - TimeCardView ..> TimeCard: View hiển thị thông tin từ TimeCard. Đây là mối quan hệ phụ thuộc (dependency).
+ - Project ..> TimeCardController: Project cung cấp dữ liệu cho Controller. Đây là mối quan hệ phụ thuộc
