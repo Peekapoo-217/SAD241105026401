@@ -52,3 +52,6 @@
 
 5. ChargeNumber <<entity>>
 
+---
+## Class Diagram
+![markdown](https://www.planttext.com/api/plantuml/png/f98zJiGm48LxdsAwXMBt02YA5WKAYaK8SO69CoH6_Wcsio9Qg2beeAQ1aZEaeDYzI4x05R05Y9KW4HAMB5cQcU-zUV9Rzpft7grlb6Hi0flxlhlJ5UYoshmWyFKp1zbtZpKirqzG2ZHGYBwxrOnBT0uMABGFzqmeoj0McT7U6Wb9mZzUQRfYx8PzjcUMqDEXggLfYKwfDjR_CWAhE1B8PC-H4noTM7D1t2zGOqcAj3z0Zpaw2fqGJqb-Vub2OYufgz2MTDoedApRsVrM7wOaYMjortfIK5jprKRNVwLk5m8eO8LlltQOG1OZL7tt8E2oGGrLI8yDnJQTfcFBxWqxOcFH_WCxF3MRNOzHsOXWzBCjCwBoevNDIHVnjxu3003__mC0)
