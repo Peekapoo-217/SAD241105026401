@@ -20,7 +20,7 @@
 5. Paycheck <<entity>>
 - Chứa thông tin về paycheck của nhân viên.
 ---
-## Relationships và Interactions
+## Mối quan hệ và tương tác:
 - PayrollControl --> IPrintService: printPaycheck
 - PrintService ..> IPrinter
 - IPrintService --> Paycheck
