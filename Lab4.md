@@ -80,16 +80,17 @@
 ![markdown](https://www.planttext.com/api/plantuml/png/V5LBRjim4Dth55gcG7o1G32Ik0NYHHeZ3f3rc9fOXFanXcG08Ut9kkYHUeLI4YbIYXnlB0tVl7byCwJ-_VbxQooGTL8K1LSMwGqObllMM9GReTbf6uDLTT1ErK3jUbr-56N_wvEllXM_y-mT-USzqZjdEAQNLJKYrkkOV-wWy_nxKAT1GLOyIqxLKTKT-8L06M2MQtK5EsXPW-nqKyQdwz8ssE6swattjPW0OyeVyYnqYvqqL9RRDkfQbGeaXaSCg6qT0eV055wDPXp47faZJ_7JoGDIM8Aw9ZGcl9qRhN2oZXAuYAlGIg_Y4MsZwx0_RlmMQcYzGKFWYDP7xgHlX9q5KtA-47UTnpQEo8DVk4G6bE0C17C2BExwYgDD3zgHQADPoQiocjNqW6UVcOeyZB6SQWy2Y6Fz1HaevRoT7R1DT7TPD2VSQ2cvCRxnYNIXdMo4JLNk7B4633vHZMGc9aqoyfAJd4-r1jgduFcO5CrUqDQvPrurdR1Eex13ukCO67Z7N5iaswRUkNFjPMOjJNB38LYokf-Zs7r2p_3ARHF6QrYTCf4MOgELxVwHgeeDpzcH9AS2RYRYsOU-tp-2WYDIZqxRolOq1c8t1vhKsr-hrMmYPulp6IlcWG6sD3c9INj4b3IDHZ-BJtQKgzLwyUQy05sy9YzW5wx42yXnBnUAVYr_tgXYyO3rFaoEmKq9noFXqO-GAUOa7VCegrZOoapPukTZ0Ybk_StVVRF-0m00__y30000)
 
 ---
-## Architectural Mechanisms
-| **Analysis Class**            | **Analysis Mechanism(s)**            |
-|-------------------------------|--------------------------------------|
-| **SystemClockInterface**       | **Legacy Interface**                 |
-| **PayrollController**          | **Distribution**                     |
-| **Paycheck**                   | **Persistency**                      |
-| **Employee**                   | **Persistency, Security**            |
-| **PurchaseOrder**              | **Persistency**                      |
-| **Timecard**                   | **Persistency**                      |
-| **IPrintService**              | **None**                             |
-| **PrintService Subsystem**     | **None**                             |
-| **IBankSystem**                | **None**                             |
-| **BankSystem Subsystem**       | **Legacy Interface**                 |
+| Analysis Class          | Analysis Mechanism(s) |
+|-------------------------|-----------------------|
+| BankSystem              | Legacy Interface      |
+| Employee                | Persistency, Security |
+| CommissionedEmployee    | Persistency, Security |
+| SalariedEmployee        | Persistency, Security |
+| HourlyEmployee          | Persistency, Security |
+| PayrollController       | Distribution          |
+| Paycheck                | Persistency           |
+| Timecard                | Persistency           |
+| Purchase Order          | Persistency           |
+| PrintServiceInterface   | None                  |
+| BankSystemInterface     | None                  |
+
