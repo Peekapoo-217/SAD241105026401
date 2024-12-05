@@ -1,11 +1,21 @@
 # USE CASE MAINTAIN TIMECARD
 
 ## Object
-  - Employee: Represents an employee using the system and interact with TimeCardForm
-  - TimeCard: Central object for managing details such as start/end dates, status, and work entries.
-  - TimeCardController: Connects to ProjectManagementDatabase to fetch required information.
-  - TimeCardForm: : The user interface for employees to interact with the system.
-  - ProjectManagementDatabaseSubSystem: A database for managing project details.
+## 1. **Employee**
+   - **Description**: Represents an employee using the system and interacts with the `TimeCardForm`.
+
+## 2. **TimeCard**
+   - **Description**: Central object for managing details such as start/end dates, status, and work entries.
+
+## 3. **TimeCardController**
+   - **Description**: Connects to the `ProjectManagementDatabase` to fetch required information.
+
+## 4. **TimeCardForm**
+   - **Description**: The user interface for employees to interact with the system.
+
+## 5. **ProjectManagementDatabaseSubSystem**
+   - **Description**: A database for managing project details.
+
 
 ---    
 ### MaintainTimecard VOPC
