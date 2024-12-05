@@ -26,3 +26,60 @@
 ---
 ### Sequence Diagram with subsystem ProjectManagementDatabaseSubSystemDatabase
 ![markdown](https://www.planttext.com/api/plantuml/png/X99DJiCm44RtEONLLP3A1LYW5hS55gLL6z7r91wr1lz44oTIpiQ28t45d8GK9mfYw--DvytONn-VYy81kLAh239dYQrrhcoD6EN-M6Oo1-FOB94QCo2niQHd30gMRAO1ReqZgnHIX_5fh0k7sPxi6sPk2mREgD6u5JX8eS0MtczN3r7Ksx7RUw_0xjYpSKZU_2JT9PICRoAVDnJtr04TIQoGbqJ-uXwC--iyp5lOivmG7Eweh_aJRemy_uXkMO5Ka2ha5w0plfGwHIgyGei44YMPCVBJk9bb9OjSGJqcfeREI_TaIn_x7U6SXILprYOdI-ye1bjO2h7shrF7oPpzNtTToBMignbIFNI42ZjgIlXOfbh-hdrWDSgIi7MNnK6VLr1IU8zk-f50s62yrGE2s1bL1qoqG2EQd_yD003__mC0)
+
+---
+
+# USE CASE: RUN PAYROLL
+
+## 1. **SystemClockInterface**
+   - **Description**: Manages and triggers the payroll system automatically every Friday or on the last working day of the month.
+
+## 2. **PayrollController**
+   - **Description**: Responsible for coordinating and executing payroll operations
+
+## 3. **Paycheck**
+   - **Description**: Represents a "Paycheck" object within the system, containing information about the employee's payment for each payroll period.
+
+## 4. **Employee**
+   - **Description**: Represents an "Employee" object in the system, containing information about each employee, such as salary, benefits, and other relevant details.
+
+## 5. **PurchaseOrder**
+   - **Description**: Represents a "Purchase Order" object within the system, containing information about purchase orders related to employee compensation (e.g., other payments or employee orders).
+
+## 6. **Timecard**
+   - **Description**: Represents a "Timecard" object, used to record the working hours of an employee during a payroll period.
+
+## 7. **IPrintService**
+   - **Description**: Defines the interface for the printing subsystem, including the necessary methods for processing and printing paychecks.
+
+## 8. **PrintService Subsystem**
+   - **Description**: A subsystem responsible for performing print-related functions in the system, such as printing employee paychecks.
+
+## 9. **IBankSystem**
+   - **Description**: Defines the interface for the banking subsystem, responsible for handling bank transactions related to payroll deposits or payments.
+
+## 10. **BankSystem Subsystem**
+   - **Description**: A subsystem responsible for processing bank transactions, including generating and handling bank transfers for payroll payments.
+
+---
+## Sequence Diagram with SubSystem
+![markdown](https://www.planttext.com/api/plantuml/png/b5HBRi8m4Dtx55wMHI_0eaA5LcA1YWGzmE0CnOf_6Zj8ELiNFLAlK3iXWJHEHIEXe9dttioR6VZ-_5hu01GghHY8O8c_QATiZSXS34iX7PZ0TxKFg9VAYd9j0j8Hn12mXPgiKajhGdeZ3R9xgL405KDAHU847j-e-0MFOkA4eXm6IPgmGpfBWRlgu9kE1eXdC6NRw3NFEZlyyIdhWi-vD39827Zny31ZMM0K6BdCiiUe2IfX88bdx7hqK-HkVZUSBZJ96OptXZY8JxBxiSsv02KgrJhymrspiGZ_G8FKefjGf81gTgenBabZEDc2Iyyt81MF1xULegmSu_79Q-SM7mkv5E-hkCkN6KFbCLDk9Gb5u2jqriimNIvpHMa8XD5Jokq9Z8y_5MbDj9PaSen98KTMeFTZbJIaAuM_6pZ70S51OPF-Pxzfs_Mu29g2fS_T9wg1oluyjstlMDnnDGKg3Frbhu-RA8J5gwLLIhGTiKNi9Vtp_0000F__0m00)
+
+---
+## Class diagram
+![markdown](https://www.planttext.com/api/plantuml/png/p5MzJiCm4Dxp51bXu0Koe8e_gGCYKf6Oh_QrjUBOrTcf505Fni0ZyGhOIUsagOaO6CWIvRxxxlykNn-V2sE1R5FBZ4am9b-rnc9zApMhbieYRO1X_fhb_X5AM04MIsX9ItbncHVvGGkUlMT7zX6vrShwDrAW4beIUC3xUYzrYsW6yWd-B6faGFmdl6o8xS3W4t6agH83oHhP1pY1jgYGUeJja5KJk0QgOcWbQOR689yeSPHeOmRBpQCZ8N_GTES1eLMw89s_K0SCREvKXRAz56hTAEiaN3ThYRrm3ssDojwvg1tYNuFP4CIyMGMrfnfNEhNjHGOaK3lnj7R5sGXh9hfdvJnoXkJ6pGYXQF_nY_GwlMHoOGRcazlfXioBzYquBro993HV-T4UkpY5xnMV-1TnufUbguDT8Ht4CFzxBuiJj0-jBMAN4_qVcLarQzDjLovSHkYRQ_x0qIZe6r1Lly314YDqkNdvCu4omBevdRDu3A1RWJ7dV1_R91nJ7u999_vFWaqUlAkhj-l4CIjojnxRhRiy-NLs3dUik9f520ndjEEi5_74pMYVBjplA4FrmWsSqqwEgz-wWwxcYAbcTylgF3BhYTa25VV_cMy0003__mC0)
+
+---
+## Architectural Mechanisms
+| **Analysis Class**            | **Analysis Mechanism(s)**            |
+|-------------------------------|--------------------------------------|
+| **SystemClockInterface**       | **Legacy Interface**                 |
+| **PayrollController**          | **Distribution**                     |
+| **Paycheck**                   | **Persistency**                      |
+| **Employee**                   | **Persistency, Security**            |
+| **PurchaseOrder**              | **Persistency**                      |
+| **Timecard**                   | **Persistency**                      |
+| **IPrintService**              | **None**                             |
+| **PrintService Subsystem**     | **None**                             |
+| **IBankSystem**                | **None**                             |
+| **BankSystem Subsystem**       | **Legacy Interface**                 |
