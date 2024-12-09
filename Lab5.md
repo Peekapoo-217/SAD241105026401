@@ -106,3 +106,12 @@ The **PrintService** subsystem is responsible for handling printing tasks, speci
 ---
 # Class Digram
 ![markdown](https://www.planttext.com/api/plantuml/png/V97FYi8m4CRlUOgvMM6jzoAB_s3fJVJWUKX76anIxKnPPDSdy-0ZxIkiJL4Z5EUIaFcO-NvV_YxNAGlMqZYhu5R62zKxr0Jv7Fr-Ss8X1p-XrzMI3XKRILPuMfIazn_G2dE_gsg7OYe_ZCJZCMoDb4MDtmcwgl6IGK7QEBITxAp2eIqoG-_6KNYUhNB8Ea-twyk6Bv8vMlIQak5Z-dru7rGxAoPQqx4XbZjOhyyNvNkaoDTCwrRmnju05W5zJJQ4nwKvi8gpd_ocQPICYbff-laaog1XOgMcv8lsD_y1003__mC0)
+
+---
+# Interaction Diagram
+![markdown](https://www.planttext.com/api/plantuml/png/N90n3e9044NxESMMck05B0oA3HtHU80HXhY1dLrsXuApMNWah-120a7QF__z_pFVzoSDWbvwqmAMOhrw1FBWegHBxP15NP2R-n24p9-SZ_gvo056GXrEAwCwgYiv6xJi2Xoo5vLDCfrphgqtADho7bR-ICzvaRrHrrEGEGADxLaIzTm6BCYsFBDSQs_c4PkcQU-oC9gDQqce0aY9g_4JFm000F__0m00)
+
+---
+# Subsystem Dependency
+![markdown](https://www.planttext.com/api/plantuml/png/f991JiCm44NtFiMe6ufKSe08eL90ABkABbXFd2crOaz2F569e2TZmP6u0h7JbdG34ip68_lxZz-NFzy_vbwmaTPPLQCkyObWia0kOTLv8GUhDlUncy2hWhuC2pLhr0HPqErbmzbGjrHNtiXqYTtDXdGvWo3CU5qr3iLKV1x5EnKNRT5x-9_LKFSa2xJ8cgRVsnV3Cw-N6QJ7TZn_DFdoBKbEg58mhhRaYCMhNdzCwEwb3u7HnjiGp7_BAMZ6P0_qt9AN0o2wgcL9eI1j7DePvAUSwK_WUwz78vkYmUrVpNO1yInaJbmGwmvoaYqHWp_0UJLA9qcknk4MyPw7YjMyRyAF-W800F__0m00)
+
