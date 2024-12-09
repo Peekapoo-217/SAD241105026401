@@ -1,4 +1,4 @@
-# Subsystem Analysis: PrintService
+# Subsystem Design: PrintService
 
 ## Overview
 The **PrintService** subsystem is responsible for handling printing tasks, specifically printing paychecks (**Paycheck**). The subsystem is divided into distinct elements with clear responsibilities to ensure modularity, maintainability, and scalability.
@@ -59,3 +59,50 @@ The **PrintService** subsystem is responsible for handling printing tasks, speci
 ---
 # Subsystem Dependency
 ![markdown](https://www.planttext.com/api/plantuml/png/f59BJiCm4Dtx5ADkI3OvW8LG5mWf4aWLd63Y3AKqSIBF16G19-kYH-eLQlA1DCaAlF1dvlczyHkV3iSr2pffoaBLQFQu9LWzaNlR6O9xzEHMyA4WZ9qLSiyOmkd6XSC0whBTQ1CRzEQ5p3wg-us68HIts2_LBgP0PXXpfMLT_8alCFuKtzuXTrdyI8lS0zg0T7EbA4T13IpXi8r7sPJxgu-4kOzY3LbL5GlYTvKhKMRoK-z-OUCQkcXKPQyQmaH6ug6O1Tzw2_x55nYlu9PgiZbPuo4ZUIUom4t6deLALfVDllvCabdBrAo7IN8pDLj3myJBqAafFNOQxiGNtwtMuGdVV_WC003__mC0)
+
+
+
+---
+
+# Subsystem Design: BankSystem
+
+## 1. `IBankSystem`
+- **Responsibility**: 
+  - Defines the general contract for banking operations within the system.
+  - Provides methods for managing bank transactions, such as depositing funds.
+
+#### Methods:
+- `Deposit(PayCheck, BankInformation)`
+- ` // Withdraw(amount: decimal)`
+---
+
+## 2. `BankSystem`
+- **Responsibility**:
+  - Implements the `IBankSystem` interface.
+  - Coordinates deposit logic and interacts with bank APIs to carry out transactions.
+
+#### Methods:
+- `BankAPI : IBankAPI`
++ `Deposit(PayCheck, BankInformation)`
++ `GetBalance()`
+---
+
+## 3. `IBankAPI`
+- **Responsibility**:
+  - Defines interactions with external bank APIs to perform operations like deposits.
+
+#### Methods:
+- `RequestDeposit(amount: decimal, bankInformation: BankInformation)`
+- `RequestWithDraw(amount: decimal, bankInformation: BankInformation)`
+- ` // GetAccountBalance(): decimal`
+
+---
+
+### Dependencies between components:
+- **`IBankSystem`** defines the contract for the system's banking operations, including deposits and withdrawals.
+- **`BankSystem`** implements `IBankSystem` and coordinates the interactions with bank APIs to perform transactions.
+- **`IBankAPI`** provides the necessary functions to interact with external bank APIs, enabling operations such as requesting a deposit or checking balance.
+
+---
+# Class Digram
+![markdown](https://www.planttext.com/api/plantuml/png/V97FYi8m4CRlUOgvMM6jzoAB_s3fJVJWUKX76anIxKnPPDSdy-0ZxIkiJL4Z5EUIaFcO-NvV_YxNAGlMqZYhu5R62zKxr0Jv7Fr-Ss8X1p-XrzMI3XKRILPuMfIazn_G2dE_gsg7OYe_ZCJZCMoDb4MDtmcwgl6IGK7QEBITxAp2eIqoG-_6KNYUhNB8Ea-twyk6Bv8vMlIQak5Z-dru7rGxAoPQqx4XbZjOhyyNvNkaoDTCwrRmnju05W5zJJQ4nwKvi8gpd_ocQPICYbff-laaog1XOgMcv8lsD_y1003__mC0)
