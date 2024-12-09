@@ -55,3 +55,7 @@ The **PrintService** subsystem is responsible for handling printing tasks, speci
 ---
 # Interaction Diagram
 ![markdown](https://www.planttext.com/api/plantuml/png/Z55B2i8m4Dtd55dMHI_GXNGXGXT2gNY08HbhiKbBCXLwDXSUoIlOD46bfEWc3E-ROPxtHsu930sgPI2eC_naqJ3cNfvkUMaQJKSqjqPWeVgMPnugOHGN5DUa3yE6BQMeK9FBA6Pctna5H5DinltyvLrAN7CWVvjNb6cqka8QZERd04bkQPBKwx-V2JG7q53F2JEGl0DsG12M_wXYli86g4AGO_ANntV9Q4NyEdu_ndBKqXtr1G00__y30000)
+
+---
+# Subsystem Dependency
+![markdown](https://www.planttext.com/api/plantuml/png/f59BJiCm4Dtx5ADkI3OvW8LG5mWf4aWLd63Y3AKqSIBF16G19-kYH-eLQlA1DCaAlF1dvlczyHkV3iSr2pffoaBLQFQu9LWzaNlR6O9xzEHMyA4WZ9qLSiyOmkd6XSC0whBTQ1CRzEQ5p3wg-us68HIts2_LBgP0PXXpfMLT_8alCFuKtzuXTrdyI8lS0zg0T7EbA4T13IpXi8r7sPJxgu-4kOzY3LbL5GlYTvKhKMRoK-z-OUCQkcXKPQyQmaH6ug6O1Tzw2_x55nYlu9PgiZbPuo4ZUIUom4t6deLALfVDllvCabdBrAo7IN8pDLj3myJBqAafFNOQxiGNtwtMuGdVV_WC003__mC0)
