@@ -152,3 +152,7 @@ The **PrintService** subsystem is responsible for handling printing tasks, speci
 ---
 # Class Diagram
 ![markdown](https://www.planttext.com/api/plantuml/png/h95D2i9038NtEKMMkh074962RWGLmHF4DewLDfLCYWlrP2uyabUm_fH1gQwStRmatykykPuliJTIgueS81DZNLF2E5bekUN4PYJak62nCHcjo3CU01_7iOqsf8xdLR5YzPqkzd6QUHiiJJDnGpW193bvZ_-0XRvIf8PbfJoQmZNuDVXGUndriDAy7df26ycp2XNygUzgrBxKz5r7J9xK5lSVgGsEKVGz1_W-64N3jlVqxsjxW9WblV_T3G00__y30000)
+
+---
+Interaction 
+![markdown](https://www.planttext.com/api/plantuml/png/b991QWCn34NtFeMM4qWlq4K8JBle8g4KSW3DMCousF8WoydXiiYHSeKuf8M6j6QwbFX-Nr_o-NXQ9qNH7Bp1NgF0Bf6OgRHSxoPaXRTtYP_KwmOP1mh4-eAA7IQwayrJVJVRo5pKBh8nLqTuMbMCu1a6qdP46MYRGqUIceMfw0ljdx0gwt7g0kblHPF5Bo6N38o1bZ1XIeSeTc5-UVKNQu_UMLHgXMpnTkXJCnzPY_f3-LektNcNHhBrkDL3V91cORZj3xuMQDR4zlg7BW000F__0m00)
