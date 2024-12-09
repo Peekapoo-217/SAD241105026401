@@ -148,3 +148,7 @@ The **PrintService** subsystem is responsible for handling printing tasks, speci
 ### Methods of `DatabaseConnection`:
 - `Connection connect()`  
     - Description: Establishes and returns a connection to the database using the provided credentials (URL, username, and password).
+
+---
+# Class Diagram
+![markdown](https://www.planttext.com/api/plantuml/png/h95D2i9038NtEKMMkh074962RWGLmHF4DewLDfLCYWlrP2uyabUm_fH1gQwStRmatykykPuliJTIgueS81DZNLF2E5bekUN4PYJak62nCHcjo3CU01_7iOqsf8xdLR5YzPqkzd6QUHiiJJDnGpW193bvZ_-0XRvIf8PbfJoQmZNuDVXGUndriDAy7df26ycp2XNygUzgrBxKz5r7J9xK5lSVgGsEKVGz1_W-64N3jlVqxsjxW9WblV_T3G00__y30000)
