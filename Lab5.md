@@ -118,3 +118,33 @@ The **PrintService** subsystem is responsible for handling printing tasks, speci
 ---
 
 # Subsytem Design: ProjectManagementDatabase
+## 1. **IProjectManagementDatabase**
+**IProjectManagementDatabase** is the interface for the subsystem that defines the method to get charge numbers based on provided criteria.
+
+### Methods of `IProjectManagementDatabase`:
+- `List<String> getChargeNumbers()`  
+    - Description: This method retrieves charge numbers from the database based on the given criteria.
+
+## 2. **ProjectManagementDatabase**
+**ProjectManagementDatabase** implements the `IProjectManagementDatabase` interface. This class is responsible for querying charge numbers directly from the database.
+### Methods of `ProjectManagementDatabase`:
+- `List<String> getChargeNumbers()`  
+    - Description: This method queries the database directly to fetch charge numbers based on the provided criteria. It might use an ORM (Object-Relational Mapping) tool or direct SQL queries.
+  
+- `Connection getConnection()`  
+    - Description: Establishes a connection to the database directly. This method can be used inside `getChargeNumbers` to create a connection when needed.
+
+## 3. **DatabaseConnection**
+**DatabaseConnection** manages the direct connection to the database.
+    - Description: In the case where DatabaseConnection requires a user and password, this is an essential part of the authentication process when connecting to the database.
+### Attributes of `DatabaseConnection`:
+- `url: String`  
+    - Description: URL for the database connection.
+- `username: String`  
+    - Description: Username for database authentication.
+- `password: String`  
+    - Description: Password for database authentication.
+
+### Methods of `DatabaseConnection`:
+- `Connection connect()`  
+    - Description: Establishes and returns a connection to the database using the provided credentials (URL, username, and password).
