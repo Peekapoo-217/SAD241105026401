@@ -269,3 +269,100 @@ public void saveChargeCode(string code)
 
 ````
 ---
+## Xác định trạng thái
+# Lớp Timecard
+
+Lớp **Timecard** có trạng thái phản ánh quy trình xử lý thẻ chấm công.
+
+## Trạng thái chính
+
+- **Pending**: Thẻ chấm công vừa được tạo và chưa được duyệt.
+- **Approved**: Thẻ chấm công đã được phê duyệt bởi quản lý hoặc hệ thống.
+- **Rejected**: Thẻ chấm công bị từ chối do không hợp lệ hoặc sai sót.
+- **Processed**: Thẻ chấm công đã được xử lý trong bảng lương (Payroll).
+
+## Thuộc tính trạng thái
+
+```csharp
+public enum TimecardStatus
+{
+    Pending,
+    Approved,
+    Rejected,
+    Processed
+}
+````
+---
+# Lớp Employee
+
+Lớp **Employee** có trạng thái quản lý trạng thái của nhân viên. 
+
+## Trạng thái chính
+
+- **Active**: Nhân viên đang làm việc.
+- **Inactive**: Nhân viên đã nghỉ việc hoặc tạm nghỉ.
+- **OnLeave**: Nhân viên đang trong kỳ nghỉ phép.
+- **Terminated**: Nhân viên đã nghỉ việc vĩnh viễn.
+
+## Thuộc tính trạng thái
+
+```csharp
+public enum EmployeeStatus
+{
+    Active,
+    Inactive,
+    OnLeave,
+    Terminated
+}
+````
+---
+
+# Lớp TimecardController
+
+Lớp **TimecardController** chịu trách nhiệm điều phối và xử lý các thẻ chấm công dựa trên trạng thái từ lớp **Timecard**. 
+
+## Chức năng chính
+
+1. **Kiểm tra trạng thái của Timecard**: 
+   - Trước khi thực hiện xử lý, kiểm tra trạng thái hiện tại của thẻ chấm công.
+
+2. **Gửi yêu cầu phê duyệt hoặc từ chối**: 
+   - Dựa trên logic nghiệp vụ, thay đổi trạng thái của thẻ chấm công (e.g., từ `Pending` sang `Approved` hoặc `Rejected`).
+
+3. **Xử lý thẻ chấm công đã được phê duyệt**: 
+   - Đảm bảo chỉ xử lý các thẻ ở trạng thái **Approved**.
+---
+
+# Lớp TimecardForm
+
+Lớp **TimecardForm** phản ánh trạng thái giao tiếp của người dùng khi nhập liệu.
+
+## Trạng thái chính
+
+- **Editing**: Biểu mẫu đang được người dùng chỉnh sửa.
+- **Submitted**: Biểu mẫu đã được gửi tới **TimecardController**.
+- **Validated**: Dữ liệu đã được kiểm tra và hợp lệ.
+- **Invalid**: Biểu mẫu chứa lỗi và cần sửa đổi.
+
+## Mô tả trạng thái
+
+- **Editing**: Người dùng đang nhập thông tin.
+- **Submitted**: Hoàn tất việc nhập và gửi yêu cầu xử lý.
+- **Validated**: Dữ liệu thỏa mãn điều kiện nhập liệu.
+- **Invalid**: Có lỗi (e.g., thiếu thông tin, mã charge không hợp lệ).
+---
+
+## 5. Lớp ProjectManagementDatabase
+Lớp **ProjectManagementDatabase** không giữ trạng thái phức tạp, nhưng có thể lưu cache hoặc trạng thái kết nối.
+
+### Trạng thái chính
+- **Connected**: Hệ thống cơ sở dữ liệu đang hoạt động.
+- **Disconnected**: Hệ thống cơ sở dữ liệu không khả dụng.
+- **CacheLoaded**: Dữ liệu mã charge đã được tải về bộ nhớ tạm.
+
+### Mô tả trạng thái
+- **Connected**: Có thể thực hiện các truy vấn tới cơ sở dữ liệu.
+- **Disconnected**: Tạm dừng hoạt động, cần xử lý lỗi kết nối hoặc khôi phục.
+- **CacheLoaded**: Dữ liệu đã được lưu vào bộ nhớ tạm để tăng tốc quá trình xử lý.
+
+
