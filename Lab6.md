@@ -152,5 +152,55 @@ public List<Timecard> listTimecards()
 
 
 ````
+
 ---
 
+## **3. TimecardController**
+- **saveTimecard(tc: Timecard)**: Điều phối yêu cầu lưu một thẻ chấm công mới.
+
+```csharp
+public void saveTimecard(Timecard tc)
+{
+    tc.save();
+    Console.WriteLine("Timecard saved.");
+}
+````
+- **updateTimecard(tc: Timecard)**: Điều phối yêu cầu cập nhật thông tin của một thẻ chấm công.****
+```csharp
+public void updateTimecard(Timecard tc)
+{
+    tc.update();
+    Console.WriteLine("Timecard updated.");
+}
+
+````
+
+- **deleteTimecard(tcId: int)**: Điều phối yêu cầu xóa một thẻ chấm công dựa trên ID.****.****
+```csharp
+public void deleteTimecard(int tcId)
+{
+    Timecard tc = new Timecard();
+    tc.id = tcId;
+    tc.delete();
+    Console.WriteLine("Timecard deleted.");
+}
+````
+
+- **getTimecardsByEmployee(empId: )**: Lấy danh sách tất cả các thẻ chấm công của một nhân viên cụ thể..****.****
+```csharp
+public List<Timecard> getTimecardsByEmployee(int empId)
+{
+    // Code giả lập lấy thẻ chấm công của nhân viên từ cơ sở dữ liệu
+    return new List<Timecard> { new Timecard() }; // Trả về một danh sách mẫu
+}
+
+````
+- **validateChargeCode(tc: Timecard)**:  Kiểm tra mã charge của thẻ chấm công có hợp lệ không..****
+```csharp
+public bool validateChargeCode(Timecard tc)
+{
+    ProjectManagementDatabase db = new ProjectManagementDatabase();
+    return db.validateChargeCode(tc.chargeCode);
+}
+
+````
