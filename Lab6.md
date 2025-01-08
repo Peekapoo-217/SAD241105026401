@@ -1,4 +1,4 @@
-
+# **Định nghĩa các lớp cần thiết**
 ## Timecard
 - **Trách nhiệm**: Quản lý thông tin thẻ chấm công của nhân viên, bao gồm các thao tác cơ bản như lưu, cập nhật, xóa, và truy vấn.
 
@@ -21,7 +21,7 @@
 
 ---
 
-## Định nghĩa Operation
+# **Định nghĩa Operation**
 ### **1. Timecard**
 - **save()**: Lưu thông tin thẻ chấm công vào cơ sở dữ liệu.
 - **update()**: Cập nhật thông tin đã thay đổi của thẻ chấm công.
