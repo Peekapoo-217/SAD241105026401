@@ -204,3 +204,68 @@ public bool validateChargeCode(Timecard tc)
 }
 
 ````
+---
+### **4.TimecardForm**
+- **displayForm()**:  Hiển thị biểu mẫu nhập liệu cho người dùng..****
+```csharp
+public void displayForm()
+{
+    Console.WriteLine("Displaying timecard form...");
+}
+
+````
+- **getInput()**:  Thu thập dữ liệu từ người dùng qua biểu mẫu..****
+```csharp
+public Timecard getInput()
+{
+    Timecard tc = new Timecard();
+    Console.WriteLine("Getting timecard input...");
+    // Thu thập thông tin từ người dùng
+    return tc;
+}
+
+````
+
+- **submitTimecard(tc: Timecard)**: Gửi thông tin thẻ chấm công từ người dùng tới.****
+```csharp
+public void submitTimecard(Timecard tc)
+{
+    TimecardController controller = new TimecardController();
+    controller.saveTimecard(tc);
+}
+````
+---
+### **5.ProjectManagementDatabase**
+- **getChargeCodeDetails(code: string)**:Lấy thông tin chi tiết về một mã charge cụ thể từ cơ sở dữ liệu.****
+```csharp
+public string getChargeCodeDetails(string code)
+{
+    // Code để lấy thông tin mã charge từ cơ sở dữ liệu
+    return "Charge Code Details";
+}
+
+````
+---
+
+- **validateChargeCode(code: string)**:Kiểm tra xem mã charge có hợp lệ hay không.****
+```csharp
+public bool validateChargeCode(string code)
+{
+    // Code để kiểm tra mã charge hợp lệ
+    return code == "VALID_CODE"; // Ví dụ mã hợp lệ
+}
+
+````
+---
+
+- **saveChargeCode(code: string)**: Lưu thông tin mã charge vào cơ sở dữ liệu.****
+```csharp
+public void saveChargeCode(string code)
+{
+    // Code để lưu mã charge vào cơ sở dữ liệu
+    Console.WriteLine($"Saving charge code: {code}");
+}
+
+
+````
+---
