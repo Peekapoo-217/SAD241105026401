@@ -365,4 +365,43 @@ Lớp **ProjectManagementDatabase** không giữ trạng thái phức tạp, nh�
 - **Disconnected**: Tạm dừng hoạt động, cần xử lý lỗi kết nối hoặc khôi phục.
 - **CacheLoaded**: Dữ liệu đã được lưu vào bộ nhớ tạm để tăng tốc quá trình xử lý.
 
+---
+# **Định nghĩa các Attributes**
+| Lớp                    | Thuộc tính                                       |
+|------------------------|--------------------------------------------------|
+| **Timecard**            | Id, EmployeeId, StartTime, EndTime, Status, ChargeCode, HoursWorked |
+| **Employee**            | Id, Name, Position, Status, Timecards           |
+| **TimecardController**  | TimecardService, Database                       |
+| **TimecardForm**        | CurrentTimecard, IsValid                        |
+| **ProjectManagementDatabase** | ConnectionString, ChargeCodes              |
 
+
+
+---
+
+# **Định Nghĩa Các Dependency Của Các Lớp**
+
+## 1. Lớp **Timecard**
+**Dependency**:
+- **Employee**: Lớp Timecard phụ thuộc vào thông tin của **Employee** (EmployeeId) để xác định nhân viên nào đã tạo thẻ chấm công.
+- **ProjectManagementDatabase**: Lớp Timecard có thể cần kết nối với cơ sở dữ liệu để lưu trữ và truy vấn thông tin về thẻ chấm công.
+
+## 2. Lớp **Employee**
+**Dependency**:
+- **Timecard**: Lớp Employee có thể có nhiều **Timecard** liên kết với nhân viên đó. Do đó, **Timecard** là một dependency khi quản lý và hiển thị các thẻ chấm công của nhân viên.
+- **ProjectManagementDatabase**: Cơ sở dữ liệu được sử dụng để lưu trữ và truy vấn các thông tin liên quan đến nhân viên.
+
+## 3. Lớp **TimecardController**
+**Dependency**:
+- **TimecardService**: Lớp TimecardController sử dụng **TimecardService** để thực hiện các hành động như tạo mới, phê duyệt, hoặc từ chối thẻ chấm công.
+- **ProjectManagementDatabase**: Lớp này phụ thuộc vào cơ sở dữ liệu để lấy và lưu các thông tin liên quan đến thẻ chấm công (Timecards).
+
+## 4. Lớp **TimecardForm**
+**Dependency**:
+- **Timecard**: **TimecardForm** phụ thuộc vào đối tượng **Timecard** để điền thông tin và thực hiện các hành động liên quan đến việc tạo thẻ chấm công.
+- **TimecardController**: Sau khi người dùng nhập thông tin, **TimecardForm** gửi dữ liệu tới **TimecardController** để xử lý và phê duyệt thẻ chấm công.
+
+## 5. Lớp **ProjectManagementDatabase**
+**Dependency**:
+- **ConnectionString**: Lớp này phụ thuộc vào chuỗi kết nối cơ sở dữ liệu (ConnectionString) để thiết lập và duy trì kết nối với hệ thống cơ sở dữ liệu.
+- **ChargeCodes**: Lớp **ProjectManagementDatabase** còn cần phải truy vấn các mã charge (ChargeCodes) để sử dụng trong quá trình tạo hoặc xử lý thẻ chấm công.
