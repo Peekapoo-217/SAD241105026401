@@ -405,3 +405,22 @@ Lớp **ProjectManagementDatabase** không giữ trạng thái phức tạp, nh�
 **Dependency**:
 - **ConnectionString**: Lớp này phụ thuộc vào chuỗi kết nối cơ sở dữ liệu (ConnectionString) để thiết lập và duy trì kết nối với hệ thống cơ sở dữ liệu.
 - **ChargeCodes**: Lớp **ProjectManagementDatabase** còn cần phải truy vấn các mã charge (ChargeCodes) để sử dụng trong quá trình tạo hoặc xử lý thẻ chấm công.
+
+  ---
+# **Associations giữa các lớp**
+
+1. **Timecard ↔ Employee**
+   - **Mối quan hệ**: 1 - N
+   - **Mô tả**: Một `Employee` có thể có nhiều `Timecard`, nhưng mỗi `Timecard` chỉ thuộc về một `Employee` duy nhất.
+
+2. **Timecard ↔ TimecardController**
+   - **Mối quan hệ**: N - 1
+   - **Mô tả**: `TimecardController` quản lý các hành động với nhiều `Timecard`, nhưng không nhất thiết mỗi `Timecard` có liên kết 1 - 1 với `TimecardController`. `TimecardController` sẽ gọi các hành động như save, update và delete cho nhiều thẻ chấm công.
+
+3. **Timecard ↔ ProjectManagementDatabase**
+   - **Mối quan hệ**: 1 - 1
+   - **Mô tả**: Mỗi `Timecard` phụ thuộc vào `ProjectManagementDatabase` để kiểm tra tính hợp lệ của các `ChargeCode`. Tuy nhiên, mỗi `Timecard` không có một `ProjectManagementDatabase` riêng biệt, mà chỉ cần gọi khi cần xác thực mã charge.
+
+4. **Timecard ↔ TimecardForm**
+   - **Mối quan hệ**: 1 - 1
+   - **Mô tả**: Một `TimecardForm` tạo và gửi thông tin cho một `Timecard`. Mối quan hệ này là 1 - 1, vì mỗi biểu mẫu (`TimecardForm`) sẽ tạo và gửi một `Timecard` duy nhất.
